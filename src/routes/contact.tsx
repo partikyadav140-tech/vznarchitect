@@ -106,23 +106,25 @@ function ContactPage() {
                 </div>
               </div>
 
-              {/* Right Column: Embedded Interactive Map (Narrower on PC view, colorful default) */}
-              <div className="lg:col-span-5 relative min-h-[350px] lg:min-h-[auto] h-[350px] sm:h-[400px] lg:h-auto">
-                {/* Gold corner accents */}
-                <div className="absolute -top-3 -left-3 w-10 h-10 border-t border-l border-gold/50" />
-                <div className="absolute -bottom-3 -right-3 w-10 h-10 border-b border-r border-gold/50" />
-                
-                {/* Map Container */}
-                <div className="w-full h-full border border-gold/15 overflow-hidden shadow-2xl relative group bg-surface">
-                  <iframe
-                    title="VZN Architect location map"
-                    src="https://www.google.com/maps?q=28.5078024,76.7472682&t=&z=17&ie=UTF8&iwloc=&output=embed"
-                    className="w-full h-full border-0"
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
-                  {/* Inner overlay border */}
-                  <div className="absolute inset-0 pointer-events-none border border-gold/10 group-hover:border-gold/30 transition-colors" />
+              {/* Right Column: Embedded Interactive Map (Square shape & decreased size) */}
+              <div className="lg:col-span-5 flex items-center justify-center lg:justify-end">
+                <div className="relative w-full max-w-[380px] aspect-square">
+                  {/* Gold corner accents */}
+                  <div className="absolute -top-3 -left-3 w-10 h-10 border-t border-l border-gold/50" />
+                  <div className="absolute -bottom-3 -right-3 w-10 h-10 border-b border-r border-gold/50" />
+                  
+                  {/* Map Container */}
+                  <div className="w-full h-full border border-gold/15 overflow-hidden shadow-2xl relative group bg-surface">
+                    <iframe
+                      title="VZN Architect location map"
+                      src="https://www.google.com/maps?q=28.5078024,76.7472682&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                      className="w-full h-full border-0"
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
+                    {/* Inner overlay border */}
+                    <div className="absolute inset-0 pointer-events-none border border-gold/10 group-hover:border-gold/30 transition-colors" />
+                  </div>
                 </div>
               </div>
 

@@ -64,16 +64,18 @@ export function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, delay: 0.1 }}
-            className="relative w-full min-h-[350px] overflow-hidden border border-gold/20 shadow-2xl group"
+            className="flex items-center justify-center md:justify-end"
           >
-            <iframe
-              title="VZN Architect location map"
-              src="https://www.google.com/maps?q=28.5078024,76.7472682&t=&z=17&ie=UTF8&iwloc=&output=embed"
-              className="w-full h-full border-0"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-            <div className="absolute inset-0 pointer-events-none border border-gold/10 group-hover:border-gold/30 transition-colors" />
+            <div className="relative w-full max-w-[380px] aspect-square overflow-hidden border border-gold/20 shadow-2xl group bg-surface">
+              <iframe
+                title="VZN Architect location map"
+                src="https://www.google.com/maps?q=28.5078024,76.7472682&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                className="w-full h-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+              <div className="absolute inset-0 pointer-events-none border border-gold/10 group-hover:border-gold/30 transition-colors" />
+            </div>
           </motion.div>
         </div>
       </div>
