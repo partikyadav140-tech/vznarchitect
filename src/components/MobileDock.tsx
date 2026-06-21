@@ -1,5 +1,6 @@
-import { Home, Briefcase, MessageCircle, Layout, Phone } from "lucide-react";
+import { Home, Briefcase, Layout, Phone } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+import { FaWhatsapp } from "react-icons/fa";
 
 export function MobileDock() {
   return (
@@ -13,7 +14,7 @@ export function MobileDock() {
         <Home className="h-5.5 w-5.5" />
         <span className="text-[8px] uppercase tracking-wider font-medium">Home</span>
       </Link>
-
+ 
       <Link
         to="/projects"
         className="flex flex-col items-center gap-1 text-muted-foreground hover:text-gold transition-colors"
@@ -22,7 +23,7 @@ export function MobileDock() {
         <Briefcase className="h-5.5 w-5.5" />
         <span className="text-[8px] uppercase tracking-wider font-medium">Works</span>
       </Link>
-
+ 
       {/* WhatsApp highlighted button */}
       <a
         href="https://wa.me/918950078109?text=Hi%20VZN%20Architect%2C%20I%20would%20like%20a%20consultation."
@@ -31,7 +32,7 @@ export function MobileDock() {
         className="relative -top-5 flex flex-col items-center justify-center w-12.5 h-12.5 rounded-full bg-gold-gradient text-gold-foreground gold-glow hover:scale-105 transition-transform"
         aria-label="WhatsApp Chat"
       >
-        <MessageCircle className="h-6 w-6" />
+        <FaWhatsapp className="h-6.5 w-6.5" />
       </a>
 
       <Link
