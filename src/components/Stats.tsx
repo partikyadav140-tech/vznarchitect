@@ -23,7 +23,7 @@ function Counter({ to, suffix = "+" }: { to: number; suffix?: string }) {
 }
 
 const stats = [
-  { value: 8, suffix: "+", label: "Years of Expertise" },
+  { value: 4, suffix: "+", label: "Years of Expertise" },
   { value: 150, suffix: "+", label: "Projects Designed" },
   { value: 120, suffix: "+", label: "Happy Clients" },
   { value: 24, suffix: "/7", label: "Consultation Support" },
