@@ -123,7 +123,7 @@ function AboutPage() {
                 
                 {/* Overlay Badge */}
                 <div className="absolute -bottom-6 left-6 glass px-6 py-4 rounded-sm max-w-[240px]">
-                  <div className="text-gold font-display text-3xl leading-none">8+</div>
+                  <div className="text-gold font-display text-3xl leading-none">4+</div>
                   <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground mt-1.5">
                     Years of Luxury Design
                   </div>
