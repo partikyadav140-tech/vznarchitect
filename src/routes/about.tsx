@@ -5,7 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { CursorGlow } from "@/components/CursorGlow";
-import aboutImg from "@/assets/about.jpg";
+import aboutImg from "@/assets/parveen-profile.png";
 
 export const Route = createFileRoute("/about")({
   head: () => ({

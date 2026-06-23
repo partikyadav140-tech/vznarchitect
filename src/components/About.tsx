@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Compass, ShieldCheck, Users, Layers } from "lucide-react";
-import about from "@/assets/about.jpg";
+import about from "@/assets/parveen-profile.png";
 
 const highlights = [
   { icon: Compass, title: "Creative Design", text: "Original concepts rooted in site, climate and lifestyle." },
