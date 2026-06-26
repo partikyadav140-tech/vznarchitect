@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Mail, Menu, X, Phone } from "lucide-react";
 import logo from "@/assets/vzn-logo.png";
 import { Link, useLocation } from "@tanstack/react-router";
@@ -16,7 +16,22 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [stripeHeight, setStripeHeight] = useState(0);
+  const stripeRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
+
+  useEffect(() => {
+    if (stripeRef.current) {
+      setStripeHeight(stripeRef.current.offsetHeight);
+    }
+    const onResize = () => {
+      if (stripeRef.current) {
+        setStripeHeight(stripeRef.current.offsetHeight);
+      }
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -32,27 +47,51 @@ export function Navbar() {
 
   return (
     <>
-      <header
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+      {/* Top info bar — hides on scroll */}
+      <div
+        ref={stripeRef}
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-out ${
           scrolled
-            ? "bg-background/85 backdrop-blur-xl border-b border-gold/15 py-1.5 lg:py-3"
-            : "bg-transparent py-3 lg:py-5"
+            ? "opacity-0 -translate-y-full pointer-events-none"
+            : "opacity-100 translate-y-0"
         }`}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-center gap-2 border-b border-gold/15 bg-background/90 px-3 py-1.5 text-[9px] uppercase tracking-[0.22em] text-muted-foreground backdrop-blur-xl lg:hidden">
-          <a
-            href="mailto:veersingh11919@gmail.com"
-            className="flex items-center gap-1.5 transition-colors hover:text-gold"
-          >
-            <Mail size={10} className="text-gold" />
-            veersingh11919@gmail.com
-          </a>
-          <span className="h-1 w-1 rounded-full bg-gold/70" />
-          <a href="tel:+918950078109" className="transition-colors hover:text-gold">
-            +91 8950078109
-          </a>
+        <div className="relative overflow-hidden bg-gradient-to-r from-background via-background/95 to-background border-b border-gold/20">
+          <div className="absolute inset-0 bg-gold/[0.03]" />
+          <div className="mx-auto flex max-w-7xl items-center justify-center gap-4 px-4 py-2 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+            <a
+              href="mailto:veersingh11919@gmail.com"
+              className="flex items-center gap-1.5 transition-colors duration-300 hover:text-gold group"
+            >
+              <span className="flex items-center justify-center w-5 h-5 rounded-full bg-gold/10 group-hover:bg-gold/20 transition-colors duration-300">
+                <Mail size={10} className="text-gold" />
+              </span>
+              <span className="hidden sm:inline">veersingh11919@gmail.com</span>
+              <span className="sm:hidden">Email Us</span>
+            </a>
+            <span className="h-3 w-px bg-gold/30" />
+            <a
+              href="tel:+918950078109"
+              className="flex items-center gap-1.5 transition-colors duration-300 hover:text-gold group"
+            >
+              <span className="flex items-center justify-center w-5 h-5 rounded-full bg-gold/10 group-hover:bg-gold/20 transition-colors duration-300">
+                <Phone size={10} className="text-gold" />
+              </span>
+              +91 8950078109
+            </a>
+          </div>
         </div>
+      </div>
 
+      {/* Main navbar */}
+      <header
+        className={`fixed inset-x-0 z-50 transition-all duration-500 ${
+          scrolled
+            ? "top-0 bg-background/85 backdrop-blur-xl border-b border-gold/15 py-1.5 lg:py-3"
+            : `top-0 lg:top-0 py-3 lg:py-5`
+        }`}
+        style={!scrolled ? { top: `${stripeHeight}px` } : undefined}
+      >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 sm:px-8">
           <Link
             to="/"

@@ -6,7 +6,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative w-full bg-background pt-[84px] md:pt-[96px]"
+      className="relative w-full bg-background pt-[115px] md:pt-[120px]"
     >
       <div className="w-full h-auto overflow-hidden">
         <motion.div

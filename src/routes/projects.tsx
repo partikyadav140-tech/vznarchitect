@@ -26,7 +26,7 @@ function ProjectsPage() {
     <>
       <CursorGlow />
       <Navbar />
-      <main className="pt-24 bg-background text-foreground min-h-screen">
+      <main className="pt-[120px] bg-background text-foreground min-h-screen">
         {/* Banner Section */}
         <section className="relative py-20 md:py-28 overflow-hidden border-b border-gold/15 bg-surface">
           <div className="absolute inset-0 opacity-10 pointer-events-none">
