@@ -123,7 +123,6 @@ export async function deleteConsultationSubmission(id: string): Promise<boolean>
     return true;
   }
 
-  const existing = getLocalSubmissions().filter((submission) => submission.id !== id);
-  persistLocalSubmissions(existing);
+  console.error("Failed to delete consultation submission", error);
   return false;
 }

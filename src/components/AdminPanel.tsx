@@ -83,7 +83,13 @@ export function AdminPanel() {
 
   const handleDelete = async (id: string) => {
     if (!confirm("Are you sure you want to delete this submission?")) return;
-    await deleteConsultationSubmission(id);
+    const deleted = await deleteConsultationSubmission(id);
+
+    if (!deleted) {
+      alert("Delete failed. Please refresh and try again.");
+      return;
+    }
+
     await load();
     setSelectedSubmission(null);
   };

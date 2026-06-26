@@ -35,8 +35,8 @@ try {
   await client.query(`drop policy if exists "Allow authenticated reads" on public.consultation_submissions;`);
   await client.query(`create policy "Allow authenticated reads" on public.consultation_submissions for select to authenticated using (true);`);
 
-  await client.query(`drop policy if exists "Allow authenticated deletes" on public.consultation_submissions;`);
-  await client.query(`create policy "Allow authenticated deletes" on public.consultation_submissions for delete to authenticated using (true);`);
+  await client.query(`drop policy if exists "Allow anonymous deletes" on public.consultation_submissions;`);
+  await client.query(`create policy "Allow anonymous deletes" on public.consultation_submissions for delete to anon using (true);`);
 
   const result = await client.query(`select to_regclass('public.consultation_submissions') as table_name;`);
   console.log(JSON.stringify({ success: true, table: result.rows[0].table_name }, null, 2));
